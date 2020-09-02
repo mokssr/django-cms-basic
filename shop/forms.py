@@ -6,3 +6,4 @@ class ProductForm(forms.Form):
     description = forms.CharField(widget=forms.Textarea, label='Deskripsi Produk')
     price = forms.IntegerField(label="Harga Produk", min_value=1000)
     stock = forms.IntegerField(label="Jumlah Stok", min_value=0)
+    image = forms.ImageField(label="Foto produk")
