@@ -1,6 +1,7 @@
+{% load humanize %}
 <h1>Input Product Page</h1>
 
-<form action="{% url 'input-product' %}" method="post">
+<form action="{% url 'input-product' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         {{form.as_table}}
@@ -14,7 +15,10 @@
 
 <ul>
     {% for product in product_list %}
-    <li>{{product.name}} [Rp.{{product.price}}]</li>
+    <li>
+        {{product.name}} [Rp.{{product.price|intcomma}}]
+        <a href='{% url 'product-detail' product_slug=product.slug %}'>Details</a>
+    </li>
     {% endfor %}
 
 </ul>
