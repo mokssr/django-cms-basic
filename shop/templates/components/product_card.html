@@ -1,0 +1,10 @@
+{% load humanize %}
+<div class="card product-card shadow" style="width: 18rem;">
+  <img src="images/{{product.image}}" class="card-img-top product-image">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">Rp. {{product.price|intcomma}}</p>
+    {% comment %} <a href='{% url 'product_detail' product_slug=product.slug %}'>Details</a> {% endcomment %}
+    <a href='{% url 'buy_product' product_slug=product.slug %}' class="btn btn-primary">Buy Now!</a>
+  </div>
+</div>
