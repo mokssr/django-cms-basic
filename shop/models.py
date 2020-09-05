@@ -8,4 +8,4 @@ class Product(models.Model):
     price  = models.IntegerField(default=0)
     stock = models.IntegerField(default=0)
     # image
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(default='no-image.jpg')

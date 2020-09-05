@@ -129,3 +129,5 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+DEFAULT_PRODUCT_IMAGE = 'no-image.jpg'

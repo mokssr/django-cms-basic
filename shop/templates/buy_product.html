@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} Product | Buy{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src={% static product_image_static %} class="product-image" alt="{{product.name}}" >
+        </div>
+        <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h5>{{product.name}}</h2>
+                </li>
+                <li class="list-group-item">
+                    Harga
+                    <h4 class="product-price">Rp. {{product.price|intcomma}}</h2>
+                </li>
+                <li class="list-group-item">
+                    <h6>stock: {{product.stock}}</h2>
+                </li>
+            </ul>
+            <a href={% url 'home'%} class="btn btn-success">Buy Now</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <h5>Deskripsi Produk</h5>
+            <p>{{product.description}}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

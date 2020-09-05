@@ -1,24 +1,37 @@
+{% extends 'base.html' %}
 {% load humanize %}
 <h1>Input Product Page</h1>
 
-<form action="{% url 'input-product' %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
-    <br>
-    <button type="submit">Simpan</button>
-    
-</form>
+{% block title %}Shop | Input Produk{% endblock title %}
 
-<h1>Product List</h1>
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <h1>Input Produk</h1>
 
-<ul>
-    {% for product in product_list %}
-    <li>
-        {{product.name}} [Rp.{{product.price|intcomma}}]
-        <a href='{% url 'product-detail' product_slug=product.slug %}'>Details</a>
-    </li>
-    {% endfor %}
+        <form action="{% url 'input_product' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <br>
+            <button class="btn btn-primary" type="submit">Simpan</button>
+            
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h1>Product List</h1>
+        <ul>
+            {% for product in product_list %}
+            <li>
+                {{product.name}} [Rp.{{product.price|intcomma}}]
+                <a href='{% url 'product_detail' product_slug=product.slug %}'>Details</a>
+            </li>
+            {% endfor %}
 
-</ul>
+        </ul>
+    </div>
+</div>
+</div>
+{% endblock content %}
